@@ -1,25 +1,56 @@
 <div class="container">
 	<div class="span9 panel">
 		<div class="content">
-			<form>
+			<form class="form-horizontal">
 				<fieldset>
 					<legend>基本信息</legend>
 				</fieldset>
 
-				<label class="bold" for="title">标题</label>
-				<textarea rows="2" class="span8" id="title" ng-model="post.title"></textarea>
-				<p class="help-block">尽量简要，一句话说清楚要说的。</p>
-				<label>内容</label>
+                <div class="control-group">
+                    <label class="control-label bold" for="title">标题</label>
+                    <div class="controls">
+                        <textarea rows="2" class="span6" id="title" ng-model="post.title"></textarea>
+                        <p class="help-block">尽量简要，一句话说清楚要说的。</p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+				<label class="control-label">内容</label>
 				<div class="controls">
-				<textarea rows="10" class="span8 input-xlarge" ng-model="post.text"></textarea>				
+				<textarea rows="10" class="span6 input-xlarge" ng-model="post.text"></textarea>
 				</div>
+                </div>
 
 				<fieldset>
-					<legend>详细地址</legend>
+					<legend>联系信息</legend>
 				</fieldset>
-				<div class="form-actions">
-				<button ng-click="submitPost(post)" class="btn btn-primary">发布</button>
-				</div>
+
+                <div class="control-group">
+                    <label class="control-label" for="address">地区</label>
+                    <div class="controls">
+                        <input class="input-big" type="text" id="address" ng-model="post.address"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="address">QQ</label>
+                    <div class="controls">
+                        <input class="input-small" type="text" id="qq" ng-model="post.qq"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="address">电话</label>
+                    <div class="controls">
+                        <input class="input-big" type="text" id="phone" ng-model="post.phone"/>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button ng-click="submitPost(post)" class="btn btn-large btn-primary">发布</button>
+                    <button ng-click="" class="btn btn-large ">预览</button>
+                </div>
+
 			</form>
 		</div>
 	</div>

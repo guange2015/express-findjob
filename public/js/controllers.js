@@ -3,7 +3,7 @@
                /* Controllers */
 
 
-function NavBarController($scope,$route, $routeParams, $location, $resource) {
+function NavBarController($scope,$route, $routeParams, $location) {
     $scope.onTwitterLogin = function()
     {
         // a direct window.location to overcome Angular intercepting your call!
@@ -13,27 +13,21 @@ function NavBarController($scope,$route, $routeParams, $location, $resource) {
     $scope.onFacebookLogin = function () {
 
     }
-  $scope.getClass = function(path) {
-     if($location.path()===path){
-      return "active";
-     }
-     return "";
-  }
-  $scope.$route = $route;
-  $scope.$location = $location;
-  $scope.$routeParams = $routeParams;
-
-  var User = $resource('/user/:userId', {userId:'@id'});
-  console.log(User.get({id:111}));
+    $scope.getClass = function(path) {
+        if($location.path()===path){
+            return "active";
+        }
+        return "";
+    }
+//  $scope.$route = $route;
+//  $scope.$location = $location;
+//  $scope.$routeParams = $routeParams;
+//
+//    console.log('haa');
 }
 
-function IndexCtrl($scope, $http) {
-  $scope.posts = [];
-
-  $http({method: 'GET', url: '/api/posts'}).
-    success(function(data, status, headers, config) {
-      $scope.posts = data.posts;
-    });
+function IndexCtrl($scope, $http, Post) {
+  $scope.posts = Post.query();
 }
 
 function LoginCtrl($scope,$location)
@@ -45,20 +39,21 @@ function LoginCtrl($scope,$location)
     }
 }
 
-function AddPostCtrl($scope, $http,$route, $routeParams, $location) {
+function AddPostCtrl($scope, $http,Post, $location) {
   $scope.submitPost = function (post) {
-    console.log(post);
-    $http.post('/api/addPost', post).
-    success(function(data, status, headers, config) {
-      $location.path('/');
+
+    var p = new Post(post);
+    p.$save(function(u, putResponseHeaders) {
+        console.log(putResponseHeaders);
+        $location.path('/');
     });
-  };
+  }
 }
 
-function ReadPostCtrl($scope, $http, $routeParams) {
-  $http({method: 'GET', url: '/api/post/' + $routeParams.id}).
-    success(function(data, status, headers, config) {
-      $scope.post = data.post;
+function ReadPostCtrl($scope, $routeParams,Post) {
+    console.log("Read post ctrl");
+    Post.get({id: $routeParams.id}, function(u, getResponseHeader){
+        $scope.post = u.post;
     });
 }
 

@@ -103,6 +103,9 @@ app.configure(function(){
   app.use(everyauth.middleware());
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
+  app.use(function(req, res){
+     res.sendfile(__dirname + "/views/index.html");
+  });
 });
 
 app.configure('development', function(){
@@ -124,13 +127,15 @@ app.get('/partials/:name', routes.partials);
 // JSON API
 
 app.get('/api/posts', api.posts);
-app.get('/api/post/:id', api.post);
+app.get('/api/posts/:id', api.post);
 
-app.post('/api/addPost', api.addPost);
-app.post('/api/editPost', api.editPost);
-app.post('/api/deletePost', api.deletePost);
+app.post('/api/posts', api.addPost);
+app.put('/api/posts/:id', api.editPost);
+app.delete('/api/posts/:id', api.deletePost);
 
+// for angluarjs html5
 app.get('*', routes.index);
+
 appServer = app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", appServer.address().port, app.settings.env);
 });
