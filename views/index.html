@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<div class="navbar navbar-fixed-top" ng-controller="NavBarController">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Find Your lucky</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li ng-class="getClass('/')"><a href="/">主页</a></li>
+                    <li ng-class="getClass('/addPost')"><a href="/addPost">寻找工作</a></li>
+                    <li ng-class="getClass('/selectCity')"><a href="#">选择城市</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" dropdown>Login <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="onTwitterLogin()"><img style="border: 0px"
+                                    src="https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png"
+                                    alt="With Twitter"></a></li>
+                            <li class="divider"></li>
+                            <li><a ng-click="onFacebookLogin()"><img src="/images/facebookLogin.png" alt="With Facebook"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div>
+    </div><!-- /navbar-inner -->
+</div>
+<div class="wrapper" ng-view>
+
+</div>
+</body>
+<script type="text/javascript" src="js/lib/jquery/jquery.js"></script>
+<script src="js/lib/angular/angular.js"></script>
+<script src="js/lib/angular/angular-resource.js"></script>
+<script src="stylesheets/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+</html>

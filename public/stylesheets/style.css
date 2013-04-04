@@ -1,0 +1,85 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #d0d6db;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.dropdown-menu a{
+    text-align: center;
+}
+
+.posts .post {
+	padding: 5px 12px;
+}
+ul.posts{
+	margin: 0px;
+}
+ul.posts li:hover {
+	background: #efefef;
+}
+ul.posts li{
+	list-style: none;
+	border-bottom: 1px solid #E3E8E3;
+}
+
+ul.posts li .post_title{
+	color: #2c64d7;
+}
+ul.posts li .post_title,.post_text {
+	display: block;
+	margin: 4px 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+ul.posts li .post_addtime,.post_address{
+	font-size: 80%;
+	color: #bbb;
+}
+.clear_both{
+		clear:both;
+}
+.post_right {
+	display: inline-block;
+	width: 500px;
+}
+.user_avatar {
+	box-shadow: 0px 1px 4px gray;
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+	margin: 10px 10px auto 0px;
+	vertical-align : top;
+}
+
+.panel {
+	box-shadow:1px 2px 6px gray;
+	background-color: #fff;
+}
+
+.panel .header {
+	border-bottom:1px solid #E3E8E3;
+	padding:10px;
+}
+
+.panel .content span {
+	float:left;
+	padding: 5px;
+}
+
+.panel .content {
+	padding: 10px;
+}
+
+.help-block{
+	color: #999;
+}
+
+.pagination {
+	margin: 18px 50px;
+}

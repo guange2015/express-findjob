@@ -1,0 +1,38 @@
+<div class="container" >
+    <div class="row">
+    		<div class="span3 panel">
+    			<div class="header">
+    			<span class="panel_title">热门地点</span>
+    			</div>
+    			<div class="content">
+    				<span>klfjasd</span> 
+    				<span>asffsd</span>
+    				<span>asffsd</span>
+    				<span>asffsd</span>
+    				<span>asffsd</span>
+    				<span>asffsd</span>
+    			</div>
+    		</div>
+        <div class="span9 panel">
+        	<ul class="posts">
+        		<li ng-repeat="post in posts">
+        			<div class="post">
+	      				<div class="user_avatar">
+	        			<img ng-src="{{post.avatar}}">
+	      				</div>
+	      				<div class="post_right">
+		        			<span class="post_title">{{post.title}}</span>
+		        			<span class="post_text">{{post.text}}</span>
+		        			<span class="post_addtime">{{post.addtime}}</span>
+		        			<span class="post_address">{{post.address}}</span>
+	      				</div>
+
+        			</div>
+        		</li>
+        	</ul>
+
+        	<div class="pagination"><ul><li class="prev previous_page disabled"><a href="#">← 上一页</a></li> <li class="active"><a rel="start" href="/topics?page=1">1</a></li> <li><a rel="next" href="/topics?page=2">2</a></li> <li><a href="/topics?page=3">3</a></li> <li><a href="/topics?page=4">4</a></li> <li><a href="/topics?page=5">5</a></li> <li class="disabled"><a href="#"><span class="gap">…</span></a></li> <li><a href="/topics?page=99">99</a></li> <li><a href="/topics?page=100">100</a></li> <li class="next next_page "><a rel="next" href="/topics?page=2">下一页 →</a></li></ul></div>
+
+        </div>
+    </div>
+</div>

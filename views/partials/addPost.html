@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="span9 panel">
+		<div class="content">
+			<form>
+				<fieldset>
+					<legend>基本信息</legend>
+				</fieldset>
+
+				<label class="bold" for="title">标题</label>
+				<textarea rows="2" class="span8" id="title" ng-model="post.title"></textarea>
+				<p class="help-block">尽量简要，一句话说清楚要说的。</p>
+				<label>内容</label>
+				<div class="controls">
+				<textarea rows="10" class="span8 input-xlarge" ng-model="post.text"></textarea>				
+				</div>
+
+				<fieldset>
+					<legend>详细地址</legend>
+				</fieldset>
+				<div class="form-actions">
+				<button ng-click="submitPost(post)" class="btn btn-primary">发布</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
