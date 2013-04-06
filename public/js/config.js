@@ -18,13 +18,7 @@ seajs.config({
             src: '/js/lib/angular/angular.js',
             exports: 'angular'
         },
-        'angular-resource': {
-            src: '/js/lib/angular/angular-resource.js',
-            exports: 'angular-resource'
-        },
-        'bootstrapjs':{
-            src: '/stylesheets/bootstrap/js/bootstrap.min.js',
-            export: 'bootstrapjs'
-        }
+        'angular-resource': '/js/lib/angular/angular-resource.js',
+        'bootstrapjs': '/stylesheets/bootstrap/js/bootstrap.js'
     }
-})
+});

@@ -1,9 +1,9 @@
 'use strict';
 
 define(function(require,exports,module){
-    var angular = require('angular');
-    require('angular-resource');
 
+
+    var angular = require('angular');
     require('./controllers');
     require('./directives');
     require('./services');

@@ -9,5 +9,9 @@
 define(function(require){
     require('jquery');
     require('bootstrapjs');
-   var app = require('./app');
+    require('./app');
+
+    var angular = require('angular');
+
+//    angular.bootstrap(document, ['myApp']);
 });

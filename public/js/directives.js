@@ -2,7 +2,8 @@
 
 /* Directives */
 
-
+define(function(require){
+    var angular = require('angular');
 angular.module('myApp.directives', []).
   directive('appVersion', ['version', function(version) {
     return function(scope, elm, attrs) {
@@ -14,3 +15,4 @@ angular.module('myApp.directives', []).
          $(elm).dropdown();
         };
     });
+});
