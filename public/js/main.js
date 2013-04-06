@@ -6,8 +6,28 @@
  * To change this template use File | Settings | File Templates.
  */
 
-define(function(require){
-    require('jquery');
-    require('bootstrapjs');
-   var app = require('./app');
+require.config({
+    paths: {
+        jquery: '/js/lib/jquery/jquery',
+        bootstrap: '/stylesheets/bootstrap/js/bootstrap.min',
+        angular: '/js/lib/angular/angular',
+        angularResource: '/js/lib/angular/angular-resource'
+    },
+    shim: {
+        'angular' : {'exports' : 'angular'},
+        'angularResource' : {deps:['angular']},
+        'bootstrap': {deps:['jquery']}
+    },
+    priority: [
+        "angular"
+    ],
+    urlArgs: "bust=" +  (new Date()).getTime()
+});
+
+require([
+    'angular',
+    'bootstrap',
+    'app'
+], function (angular) {
+    angular.bootstrap(document, ['myApp']); //貌似不要也可以。
 });

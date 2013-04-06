@@ -2,7 +2,6 @@
 
                /* Controllers */
 
-
 function NavBarController($scope,$route, $routeParams, $location) {
     $scope.onTwitterLogin = function()
     {

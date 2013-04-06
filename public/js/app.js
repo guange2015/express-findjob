@@ -1,16 +1,8 @@
 'use strict';
 
-define(function(require,exports,module){
-    var angular = require('angular');
-    require('angular-resource');
-
-    require('./controllers');
-    require('./directives');
-    require('./services');
-    require('./filters');
-
-// Declare app level module which depends on filters, and services
-    angular.module('myApp', ['myApp.services']).
+define(['angular','angularResource','controllers','services','filters','directives'], function (angular ) {
+    var app = angular.module('myApp',['myApp.services','myApp.filters','myApp.directives']);
+    app.
         config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             var prefix = "/partials/";
@@ -43,6 +35,4 @@ define(function(require,exports,module){
                 redirectTo: '/'
             });
         }]);
-
-
 });

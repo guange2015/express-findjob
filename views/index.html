@@ -6,6 +6,7 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/bootstrap/css/bootstrap.min.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+
 </head>
 <body>
 <div class="navbar navbar-fixed-top" ng-controller="NavBarController">
@@ -44,9 +45,6 @@
 
 </div>
 
-<script type="text/javascript" src="/js/seajs/sea.js"
-        data-config="/js/config"
-        data-main="/js/main"
-        ></script>
+<script data-main="js/main" src="/js/lib/require_min.js"></script>
 </body>
 </html>
