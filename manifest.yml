@@ -1,0 +1,17 @@
+---
+applications:
+  .:
+    name: findjob
+    framework:
+      name: node
+      info:
+        mem: 64M
+        description: Node.js Application
+        exec:
+    infra: ap-aws
+    url: ${name}.${target-base}
+    mem: '256'
+    instances: 1
+    services:
+      mongodb-findjob:
+        type: mongodb
