@@ -61,13 +61,16 @@ exports.posts = function (req, res) {
 
 exports.post = function (req, res) {
   var id = req.params.id;
-  if (id >= 0 && id < data.posts.length) {
-    res.json({
-      post: data.posts[id]
-    });
-  } else {
-    res.json(false);
+
+  for(var i in data.posts) {
+      if(data.posts[i].id == id){
+          res.json({
+              post: data.posts[i]
+          });
+      return;
+      }
   }
+  res.json(false);
 };
 
 // POST

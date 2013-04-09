@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="span9 panel">
 		<div class="content">
-			<form class="form-horizontal">
+			<form class="form-horizontal" name="form">
 				<fieldset>
 					<legend>基本信息</legend>
 				</fieldset>
@@ -40,14 +40,19 @@
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" for="address">电话</label>
+                    <label class="control-label" for="address" >电话</label>
                     <div class="controls">
-                        <input class="input-big" type="text" id="phone" ng-model="post.phone"/>
+                        <input class="input-big" type="text" name="phone" ng-model="post.phone" required phone-validate />
+                    </div>
+                    <div ng-show="form.phone.$dirty && form.phone.$invalid">
+                    <span class="help-block" ng-show="form.phone.$error.required">电话号码必须填写</span>
+                    <span class="help-block" ng-show="form.phone.$error.phoneformat">电话号码格式不正确</span>
                     </div>
                 </div>
 
+
                 <div class="form-actions">
-                    <button ng-click="submitPost(post)" class="btn btn-large btn-primary">发布</button>
+                    <button ng-click="submitPost(post)" class="btn btn-large btn-primary" ng-disabled="form.$invalid">发布</button>
                     <button ng-click="" class="btn btn-large ">预览</button>
                 </div>
 

@@ -29,5 +29,5 @@ require([
     'bootstrap',
     'app'
 ], function (angular) {
-    angular.bootstrap(document, ['myApp']);
+    angular.bootstrap(document, ['myApp']); //一定要，不然可能报Uncaught Error: No module: myApp 。
 });
