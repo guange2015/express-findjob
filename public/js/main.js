@@ -9,7 +9,7 @@
 require.config({
     paths: {
         jquery: '/js/lib/jquery/jquery',
-        bootstrap: '/stylesheets/bootstrap/js/bootstrap.min',
+        bootstrap: '/stylesheets/bootstrap/js/bootstrap',
         angular: '/js/lib/angular/angular',
         angularResource: '/js/lib/angular/angular-resource'
     },
@@ -29,5 +29,5 @@ require([
     'bootstrap',
     'app'
 ], function (angular) {
-    angular.bootstrap(document, ['myApp']); //貌似不要也可以。
+    angular.bootstrap(document, ['myApp']);
 });

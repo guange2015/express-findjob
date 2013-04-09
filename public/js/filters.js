@@ -9,5 +9,4 @@ define(['angular'],function(angular){
                 return String(text).replace(/\%VERSION\%/mg, version);
             }
         }]);
-
 });
