@@ -1,38 +1,47 @@
 var crawler = require('crawler').Crawler;
+var fs = require('fs');
+var mongojs = require('mongojs');
+var db = mongojs('localhost/findjob', ['jobcolls']);
+
+
+function is_empty(obj) {
+	for(var i in obj)
+	{
+		return false;
+	}
+	return true;
+}
 
 var c =  new crawler({
 	"maxConnections": 10,
 	"forceUTF8": true,
 	"callback": function(err,result,$) {
-		$('.comment_content').each(function(){
-        console.log('good: '+$(this).children('dl').children('.good').next().text());
-        console.log('bad: '+$(this).children('dl').children('.bad').next().text());
-    });
+		$(".jobtitle >a.Linklist").each(function(index,a) {
+			c.queue(a.href);
+		});		
+
+		var job = {};
+		$(".jobct>.d_left>h2").each(function(index,a) {
+			job.title = $(a).text();
+		});
+		//时间
+		$(".jobct>.d_left>span:first").each(function(index,a) {
+			job.time = $(a).text();
+		});
+		//地址
+		$(".jobct>.d_left>span:eq(1)").each(function(index,a) {
+			job.address = $(a).text();
+		});
+		//内容
+		$(".jobct>.d_left>.d_content:first").each(function(index,a) {
+			job.content = $(a).text();
+		});
+		if (!is_empty(job)) {			
+			db.jobcolls.save(job,function(err,data){
+		     console.log(data._id);
+			});
+		}
 	}
 });
 
-c.queue("http://detail.zol.com.cn/332/331058/review.shtml");
-
-
-// var http = require('http');
-// var url = "http://cs.1010jz.com/qiuzhi/";
-// http.get(url , function(res){
-//         var stack = '';
-//         res.setEncoding('binary');
-
-//         res.on('data' , function(d){
-//             stack += d;
-//         }).on('error',function(err){
-//         console.log(err.message);
-// 		});
-
-//     res.on('end' , function(){
-//         var buf = new Buffer(stack ,'binary');
-//         var data = iconv.decode(buf , 'gbk');
-//         console.log(data.toString());
-//     }).on('error',function(err){
-//         console.log(err.message);
-//     })
-// }).on('error', function(err){
-//     console.log(err.message);
-// });
+c.queue("http://cs.1010jz.com/qiuzhi/");
